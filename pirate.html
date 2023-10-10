@@ -159,8 +159,11 @@ function check(position) {
 
     checkCount++; // Step 11e
     //penalty++; // Step 11f
-    updateElementText("locations", checkCount);
-    updateElementText("penalty", penalty);
+    //updateElementText("locations", checkCount);
+    //updateElementText("penalty", penalty);
+    document.getElementById("location").innerHTML = "Number of locations checked is " + checkCount + ".";
+    document.getElementById("penalty").innerHTML = "Penalty is " + penalty + ".";
+
 
     //document.getElementById("locations").textContent = checkCount; // Step 11g
     //document.getElementById("penalty").textContent = penalty; // Step 11j
@@ -189,9 +192,12 @@ function check(position) {
   }
 }
 penalty +=2;
-updateElementText("penalty",penalty);
-updateElementText("help",help());
+//updateElementText("penalty",penalty);
+//updateElementText("help",help());
 //document.getElementById("p").onclick = help;
+document.getElementById("penalty").innerHTML = "Penalty is " + penalty + ".";
+document.getElementById("help").innerHTML = result;
+
 
 </script>
 

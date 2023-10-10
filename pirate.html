@@ -47,27 +47,6 @@
 }
 .m {
     margin-left: 5px;
-
-}
-#image0{
-    height: 300px;
-    width:300px;
-}
-#image1{
-    height: 300px;
-    width:300px;
-}
-#image2{
-    height: 300px;
-    width:300px;
-}
-#image3{
-    height: 300px;
-    width:300px;
-}
-#image4{
-    height: 300px;
-    width:300px;
 }
 
 </style>
@@ -82,6 +61,7 @@
   <p id = "penalty">Penalty is zero</p>
   <p class="btn" style="text-align: left; margin-left: 0%;" onclick="help()">Click for help</p>
   <p id ="help"> Help Report</p>
+  <button id="reset" class="btn" style="text-align: left; margin-left: 0%;" onclick="bonusGame()">New Game</button>
 
   </div>
   <h2>Game Field</h2>
@@ -137,7 +117,7 @@ function check(position) {
     var id = ids[position];
     var image = document.getElementById(id);
     if (position === treasureLocation) {
-      image.src = "tt.jpg";
+      image.src = "t1.jpg";
       gameOver = true;
       penalty -= 3;
     } else if (position === trapLocation) {
@@ -179,6 +159,22 @@ function help() {
           return "Step Faster";
         }
       }
+
+      function bonusGame() {
+      let treasureLocation = Math.floor(Math.random() * 24);
+      let trapLocation = Math.floor(Math.random() * 24);
+      document.getElementById("location").innerText = "Number of locations checked is " + 0;
+      document.getElementById("penalty").innerText = "Penalty is " + 0;
+      for (i = 0; i < 24; i++) {
+        if (i == treasureLocation) {
+          document.getElementById(ids[i]).src = "t1.jpg";
+        } else if (i == trapLocation) {
+          document.getElementById(ids[i]).src = "t3.jpg";
+        } else {
+          document.getElementById(ids[i]).src = "tt.jpg";
+        }
+      }
+    }
       
 </script>
 

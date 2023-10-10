@@ -80,7 +80,7 @@
   <p class="p">Click on the locations to search for treasure, beware the traps.</p>
   <p id = "location">Number of locations checked is zero</p>
   <p id = "penalty">Penalty is zero</p>
-  <p class="p"> click for help</p>
+  <p class="p" onclick="help()"> click for help</p>
   <p id ="help"> Help Report</p>
 
 </div>
@@ -191,7 +191,7 @@ function check(position) {
 penalty +=2;
 updateElementText("penalty",penalty);
 updateElementText("help",help());
-document.getElementById("p").onclick = help;
+//document.getElementById("p").onclick = help;
 
 </script>
 

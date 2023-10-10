@@ -15,7 +15,7 @@
   <div id="target"> "Your Time" </div>
   <div id="counter"> "Count" </div>
   <button> Start Timer </button>
-  <button> React </button>
+  <button onclick="reactTime()"> React </button>
 
   <!--<button type="button"
   class="btn btn-primary"
@@ -39,7 +39,14 @@
   </script> -->
    
   <script>
-    function recordTime();
+    let recordTime = undefined;
+
+    function recordTime(){
+      reactTime = Date.now();
+      console.log(reactTime);
+      //document.getElementById("reactButton").onclick = recordTime;
+        
+    }
   </script>
 
 </body>

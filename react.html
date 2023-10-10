@@ -10,44 +10,45 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
+  
 
   <h2>Speed Check By Vinay Jyothi</h2>
-  <div id="target"> "Your Time" </div>
-  <div id="counter"> "Count" </div>
-  <button> Start Timer </button>
-  <button onclick="reactTime()"> React </button>
+    <div class="flex-container">
+      <div id="target">Your time</div>
+      <div id="counter">Count</div>
+      <button type="button" class="btn btn-success" onclick="startTime()"> Start Timer </button>
+      <button type="button" class="btn btn-info" onclick="recordTime()"> React </button>
+    </div>
 
-  <!--<button type="button"
-  class="btn btn-primary"
-  onclick="buttonPress2()">
-  Click me change the color.</button>
+    <script>
+      let reactTime = undefined;
+
+      function recordTime() {
+        setTimeout(() => {
+          reactTime = Date.now();
+          console.log(reactTime);}, 3000);
+      }
+
+      function startTime() {
+        let countdown = Math.floor(Math.random() * 9 + 2);
+        for (let i = 0; i <= countdown; i++) {
+          setTimeout(function () {
+            document.getElementById("counter").innerHTML = "Count: " + i;
+          }, (countdown - i) * 1000);
+        }
+
+        setTimeout(() => {
+          if (reactTime == undefined) {
+            document.getElementById("target").innerHTML = "Too Slow";
+          } 
+          else {
+            let endTime = Date.now();
+            let elapsedTime = endTime - reactTime;
+            document.getElementById("target").innerHTML = "Time was " + elapsedTime;
+          }
+        }, 8000);
+      }
+    </script>
   
-  <p id="target">I will become red </p>
-  
-  <script> 
-  function buttonPress1() {
-    setTimeout(function(){
-      document.getElementById('target').style.color = "red"
-    }, 3000)
-  }
-
-  function buttonPress2() {
-    setTimeout(()=>{
-      document.getElementById('target').style.color = "red"
-    }, 3000)
-  }
-  </script> -->
-   
-  <script>
-    let recordTime = undefined;
-
-    function recordTime(){
-      reactTime = Date.now();
-      console.log(reactTime);
-      //document.getElementById("reactButton").onclick = recordTime;
-        
-    }
-  </script>
-
 </body>
 </html>

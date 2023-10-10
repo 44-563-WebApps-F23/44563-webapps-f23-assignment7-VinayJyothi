@@ -31,7 +31,7 @@
 
       function startTime() {
         let countdown = Math.floor(Math.random() * 9 + 2);
-        for (let i = 0; i <= countdown; i++) {
+        for (let i = 0; i <= countdown; i++) { // bonus
           setTimeout(function () {
             document.getElementById("counter").innerHTML = "Count: " + i;
           }, (countdown - i) * 1000);

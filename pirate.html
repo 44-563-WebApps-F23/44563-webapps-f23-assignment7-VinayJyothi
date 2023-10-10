@@ -80,7 +80,7 @@
   <p class="p">Click on the locations to search for treasure, beware the traps.</p>
   <p id = "location">Number of locations checked is zero</p>
   <p id = "penalty">Penalty is zero</p>
-  <p class="p" onclick="help()"> click for help</p>
+  <p class="btn" style="text-align: left; margin-left: 0%;" onclick="help()">Click for help</p>
   <p id ="help"> Help Report</p>
 
 </div>
@@ -158,47 +158,36 @@ function check(position) {
     }
 
     checkCount++; // Step 11e
-    //penalty++; // Step 11f
-    //updateElementText("locations", checkCount);
-    //updateElementText("penalty", penalty);
     document.getElementById("location").innerHTML = "Number of locations checked is " + checkCount + ".";
     document.getElementById("penalty").innerHTML = "Penalty is " + penalty + ".";
-
-
-    //document.getElementById("locations").textContent = checkCount; // Step 11g
-    //document.getElementById("penalty").textContent = penalty; // Step 11j
-
     lastCheck = position; // Step 11k
   }
 
-  function help() {
-  // Compute row and col for last and treasure
-  var lastRow = Math.floor(last / 5);
-  var lastCol = last % 5;
-  var treasureRow = Math.floor(treasureLocation / 5);
-  var treasureCol = treasureLocation % 5;
+function help() {
+        let treasureRow = Math.round(treasureLocation / 5);
+        let treasureCol = treasureLocation % 5;
 
-  // Check if last and treasure are next to each other
-  if (Math.abs(lastRow - treasureRow) <= 1 && Math.abs(lastCol - treasureCol) <= 1 && Math.abs(lastRow - treasureRow) + Math.abs(lastCol - treasureCol) !== 2) {
-    return "Can smell it";
-  }
+        let lastRow = Math.round(lastCheck / 5);
+        let lastCol = lastCheck % 5;
+        let rowDiff = Math.abs(lastRow - treasureRow);
+        let columnDiff = Math.abs(lastCol - treasureCol);
+        let difference = Math.abs(rowDiff - columnDiff);
 
-  // Check if last and treasure are two away from each other
-  else if (Math.abs(lastRow - treasureRow) + Math.abs(lastCol - treasureCol) === 2) {
-    return "Close Matie";
-  }
-  else{
-  return "Step Faster";
-  }
-}
-penalty +=2;
-//updateElementText("penalty",penalty);
-//updateElementText("help",help());
-//document.getElementById("p").onclick = help;
-document.getElementById("penalty").innerHTML = "Penalty is " + penalty + ".";
-document.getElementById("help").innerHTML = result;
+        penalty = penalty + 2;
+        document.getElementById("penalty").innerHTML = "Penalty is " + penalty;
 
-
+        if ((rowDiff == 0 || columnDiff == 0) && difference == 1) {
+          document.getElementById("help").innerHTML = "Can smell it";
+          return "Can smell it";
+        } else if (rowDiff + columnDiff == 2) {
+          document.getElementById("help").innerHTML = "Close Matie";
+          return "Close Matie";
+        } else {
+          document.getElementById("help").innerHTML = "Step Faster";
+          return "Step Faster";
+        }
+      }
+      
 </script>
 
   
